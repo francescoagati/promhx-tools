@@ -1,0 +1,15 @@
+{
+  "name": "promx_tools",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["promhx"],
+  "description": "promhx tools",
+  "contributors": ["francescoagati"],
+  "releasenote": "first release",
+  "version": "0.1.1",
+  "url": "https://github.com/francescoagati/promhx_tools.hx",
+  "dependencies": {
+    "promhx": "",
+    "thx.core": ""
+  }
+}
