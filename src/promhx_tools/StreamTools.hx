@@ -25,6 +25,7 @@ class StreamTools {
     var new_stream:DeferredStream<T> = new DeferredStream();
     stream.then(function(value) {
       fn(value);
+      new_stream.resolve(value);
       return value;
     });
     return new_stream.boundStream;
