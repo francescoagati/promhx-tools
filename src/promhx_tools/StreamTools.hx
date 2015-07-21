@@ -224,4 +224,11 @@ class StreamTools {
  }
  #end
 
+	public inline static function plug<T>(dfStream:promhx.deferred.DeferredStream<T>,stream:Stream<T>) {
+		stream.doAction(dfStream.resolve);
+		return dfStream;
+	}
+
+
+
 }
