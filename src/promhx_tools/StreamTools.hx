@@ -185,21 +185,20 @@ class StreamTools {
   }
 
  #if !php
- public inline static function throttle<T>(stream:Stream<T>,ms:Int) {
-		var locked = false;
-    var new_stream:DeferredStream<T> = new DeferredStream();
 
-		stream.then(function(value) {
-			if (locked == false) {
-        locked = true;
-        new_stream.resolve(value);
-        Timer.delay(function() {
-          locked = false;
-        },ms);
-			}
-		} );
-    return new_stream.boundStream;
- }
+
+ public inline static function throttle<T>(stream:Stream<T>,ms:Int)
+		return stream
+			.bufferWithCount(ms)
+			.map(function(buffer) {
+				return buffer[buffer.length - 1];
+			});
+
+
+
+
+
+
  #end
 
  public inline static function skipDuplicates<T>(stream:Stream<T>) {
