@@ -189,7 +189,7 @@ class StreamTools {
 
  public inline static function throttle<T>(stream:Stream<T>,ms:Int)
 		return stream
-			.bufferWithCount(ms)
+			.bufferWithTime(ms)
 			.map(function(buffer) {
 				return buffer[buffer.length - 1];
 			});
