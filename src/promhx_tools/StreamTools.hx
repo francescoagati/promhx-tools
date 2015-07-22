@@ -7,6 +7,7 @@ import haxe.Timer;
 import promhx.deferred.DeferredStream;
 import promhx.Stream;
 import promhx.Thenable;
+import promhx_tools.ADeferredStream;
 import promhx.base.AsyncBase;
 using promhx_tools.StreamTools;
 import thx.Dynamics;
