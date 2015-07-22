@@ -121,8 +121,8 @@ class StreamTools {
     return new_stream.boundStream;
   }
 
-	public inline static function flatMapWithStream<A, B>(x : Stream<A>, f : A -> DeferredStream<B> -> Void) {
-  	var new_stream:DeferredStream<B> = new DeferredStream();
+	public inline static function flatMapWithStream<A, B>(x : Stream<A>, f : A -> ADeferredStream<B> -> Void):Stream<B> {
+  	var new_stream:ADeferredStream<B> = new DeferredStream();
 
     x.then(function(value:A) {
 			f(value,new_stream);
