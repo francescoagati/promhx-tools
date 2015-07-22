@@ -7,7 +7,6 @@ import haxe.Timer;
 import promhx.deferred.DeferredStream;
 import promhx.Stream;
 import promhx.Thenable;
-import promhx_tools.ADeferredStream;
 import promhx.base.AsyncBase;
 using promhx_tools.StreamTools;
 import thx.Dynamics;
@@ -122,8 +121,8 @@ class StreamTools {
     return new_stream.boundStream;
   }
 
-	public inline static function flatMapWithStream<A, B>(x : Stream<A>, f : A -> ADeferredStream<B> -> Void):Stream<B> {
-  	var new_stream:ADeferredStream<B> = new DeferredStream();
+	public inline static function flatMapWithStream<A, B>(x : Stream<A>, f : A -> DeferredStream<B> -> Void):Stream<B> {
+  	var new_stream:DeferredStream<B> = new DeferredStream();
 
     x.then(function(value:A) {
 			f(value,new_stream);
