@@ -13,7 +13,10 @@ class Main {
 
 
 
-    def << '1' << '2' << '3' << def2.boundStream << '4' << '5';
+    def << '1' << '2' << '3' << def2.boundStream <<  def2-- << '4' << '5';
+
+
+
 
   }
 }

@@ -16,4 +16,9 @@ using promhx_tools.StreamTools;
     return new ADeferredStream<T>(this);
   }
 
+  @:op(A--) public inline function getBoundStream<T>() {
+    return this.boundStream;
+  }
+
+
 }
