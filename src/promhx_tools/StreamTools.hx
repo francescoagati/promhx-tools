@@ -105,9 +105,9 @@ class StreamTools {
     var new_stream:DeferredStream<T> = new DeferredStream();
 
 		stream.then(function(value) {
-			if (cnt<=n) {
+      cnt++;
+      if (cnt<n) {
 				new_stream.resolve(value);
-				cnt++;
 			} else {
 				cnt = 0;
 				stream.end();
