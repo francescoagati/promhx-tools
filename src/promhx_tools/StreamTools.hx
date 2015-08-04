@@ -14,6 +14,12 @@ import thx.Dynamics;
 
 class StreamTools {
 
+	public inline  static  function map_constant<A,B>(stream:Stream<A>,cons:B):Stream<B> {
+    return stream.map(function(value) {
+			return cons;
+		});
+  }
+
 
   public inline  static  function map<A,B>(stream:Stream<A>,fn:A->B):Stream<B> {
     return stream.then(function(value) {

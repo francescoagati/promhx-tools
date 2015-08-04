@@ -1,17 +1,18 @@
 package promhx_tools;
 import promhx_tools.StreamTools;
 import promhx_tools.ADeferredStream;
+import promhx_tools.macro.IJqueryBinder;
 using promhx_tools.StreamTools;
 using promhx_tools.StreamToolsMacros;
 using thx.Functions;
 
-@:build(promhx_tools.macro.JQueryBinder.build())
-class View {
+
+class View implements IJqueryBinder {
 
    var root:js.JQuery;
 
    @:event_stream(root,'div','click')
-   @:chain(_stream.delay(2000).delay(4000).map(function(e) { return "Test"; }))
+   @:chain(  _stream.delay(2000).delay(4000).map_constant("Test")  )
    var click:promhx.Stream<String>;
 
    @:event_stream(root,'div','click')
