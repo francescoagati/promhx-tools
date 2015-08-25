@@ -1,6 +1,6 @@
 -cp src
 -main promhx_tools.Main
 -js build/promhx_tools.js
--lib promhx thx.core tink_macro
+-lib promhx thx.core tink_macro tink_core
 -dce full
 -D analyzer

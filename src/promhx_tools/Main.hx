@@ -5,7 +5,7 @@ import promhx_tools.macro.IJqueryBinder;
 using promhx_tools.StreamTools;
 using promhx_tools.StreamToolsMacros;
 using thx.Functions;
-
+using promhx_tools.FutureTools;
 
 class View implements IJqueryBinder {
 
@@ -30,6 +30,13 @@ class View implements IJqueryBinder {
 
 class Main {
   static function main() {
+
+    var promise = new promhx.deferred.DeferredPromise<Int>();
+
+    promise.boundPromise.toFuture() >> function (x:Int) return x + 1;
+
+
+
     var stream =new promhx.deferred.DeferredStream<String>();
     stream.boundStream.bufferWithCount(5).log('log');
 
