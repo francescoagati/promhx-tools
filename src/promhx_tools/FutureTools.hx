@@ -13,9 +13,9 @@ class FutureTools {
   }
 
   public inline static function toPromise<T>(future:Future<T>):promhx.Promise<T> {
-  var deferred = new promhx.deferred.DeferredPromise<T>();
-  future.map(deferred.resolve);
-  return deferred.boundPromise;
+    var deferred = new promhx.deferred.DeferredPromise<T>();
+    future.map(deferred.resolve);
+    return deferred.boundPromise;
   }
 
 }
