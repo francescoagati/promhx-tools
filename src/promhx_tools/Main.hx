@@ -33,8 +33,8 @@ class Main {
 
     var promise = new promhx.deferred.DeferredPromise<Int>();
 
-    promise.boundPromise.toFuture() >> function (x:Int) return x + 1;
-
+    var future = promise.boundPromise.toFuture() >> function (x:Int) return x + 1;
+    future.toPromise().then.fn(_+1);
 
 
     var stream =new promhx.deferred.DeferredStream<String>();

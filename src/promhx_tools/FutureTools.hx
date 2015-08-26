@@ -12,4 +12,10 @@ class FutureTools {
     return f.asFuture();
   }
 
+  public inline static function toPromise<T>(future:Future<T>):promhx.Promise<T> {
+  var deferred = new promhx.deferred.DeferredPromise<T>();
+  future.map(deferred.resolve);
+  return deferred.boundPromise;
+  }
+
 }
